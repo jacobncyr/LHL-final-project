@@ -6,11 +6,10 @@ from sklearn.impute import SimpleImputer
 import joblib
 import warnings
 
-# Filter out the specific warning you want to suppress
+
 warnings.filterwarnings("ignore", category=UserWarning, message="X does not have valid feature names, but StandardScaler was fitted with feature names")
 
-# Your code here
-# ... (rest of the code)
+
 
 class FoodClassifier:
     def __init__(self):
@@ -41,18 +40,12 @@ import os
 
 api_key = os.environ.get('API_KEY')
 api_url = 'https://api.calorieninjas.com/v1/imagetextnutrition'
-
-# Prepare the API request headers
 headers = {'X-Api-Key': api_key}
-
-# File paths for images
 image_paths = ['../data/salad.jpg', '../data/pizzahut.png']
 
 for image_path in image_paths:
     with open(image_path, 'rb') as file:
-        # Prepare the payload for the API POST request
         files = {'file': (image_path, file, 'image/jpeg')}
-        # Make the API POST request
         response = requests.post(api_url, headers=headers, files=files)
 
     # Check if the API call was successful
