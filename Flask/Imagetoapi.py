@@ -4,6 +4,13 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.impute import SimpleImputer
 import joblib
+import warnings
+
+# Filter out the specific warning you want to suppress
+warnings.filterwarnings("ignore", category=UserWarning, message="X does not have valid feature names, but StandardScaler was fitted with feature names")
+
+# Your code here
+# ... (rest of the code)
 
 class FoodClassifier:
     def __init__(self):
@@ -67,7 +74,7 @@ for image_path in image_paths:
 
         # Process the prediction result
         result_text = "Healthy" if prediction[0] == 1 else "Not Healthy"
-        result = f"The food item detected in '{image_path}' is '{food_item_name}', and it is classified as '{result_text}'."
+        result = f"The food item '{food_item_name}', is'{result_text}'."
         print(result)
     else:
         print(f"Error: Could not retrieve utrition information from the image '{image_path}'.")
