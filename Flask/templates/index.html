@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Classification</title>
+</head>
+<body>
+    <h1>Food Classification</h1>
+    <form action="/" method="post">
+        <label for="food_name">Enter Food Name:</label>
+        <input type="text" id="food_name" name="food_name" placeholder="Enter food name...">
+        <input type="submit" value="Classify">
+    </form>
+    {% if classification_result %}
+        <h2>Classification Result</h2>
+        <p>{{ classification_result }}</p>
+    {% endif %}
+</body>
+</html>
