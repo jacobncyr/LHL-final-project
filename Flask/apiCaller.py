@@ -18,9 +18,10 @@ class apiCaller:
             return data
         else:
             return f"Error: {response.status_code}, {response.text}"
+import os
 
-# Replace 'YOUR_API_KEY' with your actual CalorieNinjas API key
-api_key = 'yNGmkJtBl5ELYjPvQ1lSQA==fa0rJcexFJQvUYuC'
+api_key = os.environ.get('API_KEY')
+
 api_caller = apiCaller(api_key)
 
 # Test the API call with a food item query

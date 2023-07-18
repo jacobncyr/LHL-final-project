@@ -2,16 +2,16 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix, accuracy_score
 from sklearn.preprocessing import StandardScaler
-from sklearn.impute import SimpleImputer  # Import SimpleImputer
+from sklearn.impute import SimpleImputer
 import joblib
 
 class FoodClassifier:
+    #construct an instance of the model
     def __init__(self):
         self.rf = RandomForestClassifier(n_estimators=1, random_state=42)
         self.scaler = StandardScaler()
 
     def load_model(self, model_filename, scaler_filename):
-        # Load the RandomForestClassifier and StandardScaler from the given filenames
         self.rf = joblib.load(model_filename)
         self.scaler = joblib.load(scaler_filename)
 
