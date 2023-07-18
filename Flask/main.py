@@ -11,8 +11,9 @@ scaler_filename = 'scaler.joblib'
 classifier = FoodClassifier()
 classifier.load_model(model_filename, scaler_filename)
 
-# Create an instance of the apiCaller class
-api_key = 'yNGmkJtBl5ELYjPvQ1lSQA==fa0rJcexFJQvUYuC'
+import os
+
+api_key = os.environ.get('API_KEY')
 api_caller = apiCaller(api_key)
 
 

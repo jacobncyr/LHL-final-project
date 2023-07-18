@@ -37,8 +37,9 @@ class FoodClassifier:
         prediction = self.rf.predict(data_scaled)
         return prediction
 
-# Initialize the API caller with your API key
-api_key = 'yNGmkJtBl5ELYjPvQ1lSQA==fa0rJcexFJQvUYuC'
+import os
+
+api_key = os.environ.get('API_KEY')
 api_url = 'https://api.calorieninjas.com/v1/imagetextnutrition'
 
 # Prepare the API request headers
