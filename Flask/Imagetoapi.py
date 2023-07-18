@@ -17,16 +17,14 @@ class FoodClassifier:
         self.scaler = StandardScaler()
 
     def load_model(self, model_filename, scaler_filename):
-        # Load the RandomForestClassifier and StandardScaler from the given filenames
         self.rf = joblib.load(model_filename)
         self.scaler = joblib.load(scaler_filename)
 
     def predict_health_classification(self, data):
-        # Remove the 'name' feature from the data
         data.pop('name', None)
 
         # Convert data to DataFrame
-        data_df = pd.DataFrame([data])  # Wrap the data in a list
+        data_df = pd.DataFrame([data])
 
         # Handle missing values (NaN) using SimpleImputer with mean strategy
         imputer = SimpleImputer(strategy='mean')

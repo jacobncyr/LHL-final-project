@@ -24,7 +24,3 @@ api_key = os.environ.get('API_KEY')
 
 api_caller = apiCaller(api_key)
 
-# Test the API call with a food item query
-food_item_query = 'chicken sandwich'
-nutritional_info = api_caller.get_nutritional_info(food_item_query)
-print(nutritional_info)
